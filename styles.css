@@ -1,0 +1,31 @@
+@import url('https://code.highcharts.com/css/highcharts.css');
+@import url('./vendor/css/datagrid.css');
+@import url('./vendor/css/dashboards.css');
+
+
+/* Layout */
+
+#cell-0-0 {
+    flex-basis: 33.333%;
+}
+
+#cell-0-1 {
+    flex-basis: 66.667%;
+}
+
+
+/* Content */
+
+#data {
+    display: none;
+}
+
+#cell-0-0 .content {
+    padding: 16px;
+    font-size: 1.2em;
+}
+
+#cell-0-0 h1 {
+    margin: 0 0 0 0;
+    padding: 10px 0 0 0;
+}

@@ -1,1 +1,1 @@
-### Highcharts DataGrid Accessibility Demo
+### Highcharts Dashboards & DataGrid Accessibility Demo

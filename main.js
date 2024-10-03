@@ -3,22 +3,33 @@ Highcharts.setOptions({
         enabled: false
     },
     xAxis: {
+        type: 'category',
         title: {
-            text: 'Year'
+            text: 'Decade'
         }
     },
     credits: {
         enabled: false
+    },
+    title: {
+        text: ''
     }
 })
 
 Dashboards.board('container', {
     dataPool: {
         connectors: [{
-            type: 'CSV',
+            type: 'JSON',
             id: 'data',
             options: {
-                csv: document.getElementById('data').innerText
+                orientation: 'columns',
+                data: [
+                    ['Decade', '1920-1929', '1930-1939', '1940-1949', '1950-1959', '1960-1969', '1970-1979', '1980-1989', '1990-1999', '2000-2009', '2010-2019'],
+                    ['Global Avg Temperature Increase', 0.0, 0.1, 0.1, 0.2, 0.2, 0.3, 0.4, 0.5, 0.6, 0.8],
+                    ['CO2 Concentration', 305, 310, 312, 315, 320, 327, 340, 355, 375, 400],
+                    ['Sea Level Rise', 0.0, 0.2, 0.4, 0.8, 1.0, 2.0, 3.0, 4.5, 6.0, 8.0],
+                    ['Extreme Weather Events', 'Rare', 'Uncommon', 'Uncommon', 'Increasing', 'More frequent', 'Frequent', 'Much more frequent', 'Common', 'Common, intense', 'Extreme']
+                ]
             }
         }]
     },
@@ -78,28 +89,27 @@ Dashboards.board('container', {
                 }
             },
             columns: [{
-                id: 'CO2',
-                header: {
-                    format: 'CO2 Level [ppm]'
-                },
+                id: 'Decade',
                 cells: {
-                    format: '{value:0.2f}'
+                    editable: false
                 }
             }, {
-                id: 'TempChange',
+                id: 'Global Avg Temperature Increase',
                 header: {
-                    format: 'Temperature Change [°C]'
-                },
-                cells: {
-                    format: '{value:0.2f}'
+                    format: '{id} [°C]'
                 }
             }, {
-                id: 'SeaLevel',
+                id: 'CO2 Concentration',
                 header: {
-                    format: 'Sea Level Change [mm]'
+                    format: '{id} [ppm]'
+                }
+            }, {
+                id: 'Sea Level Rise',
+                header: {
+                    format: 'Sea Level Change [cm]'
                 },
                 cells: {
-                    format: '{value:0.2f}'
+                    format: '{value:0.1f}'
                 }
             }]
         }
@@ -110,16 +120,16 @@ Dashboards.board('container', {
             id: 'data',
             columnAssignment: [{
                 seriesId: 'CO2 Concentration',
-                data: ['Year', 'CO2']
+                data: ['Decade', 'CO2 Concentration']
             }]
         },
         sync: {
             highlight: true
         },
+        title: {
+            text: 'CO2 Concentration Over Time'
+        },
         chartOptions: {
-            title: {
-                text: 'CO2 Concentration Over Time'
-            },
             yAxis: {
                 title: {
                     text: 'CO2 Level [ppm]'
@@ -133,18 +143,18 @@ Dashboards.board('container', {
             id: 'data',
             columnAssignment: [{
                 seriesId: 'Temperature Increase',
-                data: ['Year', 'TempChange']
+                data: ['Decade', 'Global Avg Temperature Increase']
             }]
         },
         sync: {
             highlight: true
         },
+        title: {
+            text: 'Temperature Increase'
+        },
         chartOptions: {
             chart: {
                 type: 'column'
-            },
-            title: {
-                text: 'Temperature Increase'
             },
             yAxis: {
                 title: {
@@ -159,18 +169,18 @@ Dashboards.board('container', {
             id: 'data',
             columnAssignment: [{
                 seriesId: 'Sea Level Rise',
-                data: ['Year', 'SeaLevel']
+                data: ['Decade', 'Sea Level Rise']
             }]
         },
         sync: {
             highlight: true
         },
+        title: {
+            text: 'Global Sea Level Change'
+        },
         chartOptions: {
             chart: {
                 type: 'area'
-            },
-            title: {
-                text: 'Global Sea Level Rise'
             },
             yAxis: {
                 title: {

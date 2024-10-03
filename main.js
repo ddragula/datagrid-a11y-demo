@@ -45,7 +45,7 @@ Dashboards.board('container', {
         renderTo: 'cell-0-0',
         type: 'HTML',
         html: `<div class="content">
-            <h1>Climate Change - A deeop Dive into the Data</h1>
+            <h1>Climate Change - A deep Dive into the Data</h1>
             <p>Understanding how the climate has changed over time can help us prepare for the future. By looking at
             the data from the last 100 years, we can see patterns, learn what's driving these changes, and start
             thinking about how we can address them. Let's break down the numbers, year by year, to better understand
@@ -70,6 +70,11 @@ Dashboards.board('container', {
             rendering: {
                 rows: {
                     strictHeights: true
+                }
+            },
+            columnDefaults: {
+                cells: {
+                    editable: true
                 }
             },
             columns: [{

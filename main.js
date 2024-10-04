@@ -14,7 +14,7 @@ Highcharts.setOptions({
     title: {
         text: ''
     }
-})
+});
 
 Dashboards.board('container', {
     dataPool: {
@@ -56,7 +56,7 @@ Dashboards.board('container', {
         renderTo: 'cell-0-0',
         type: 'HTML',
         html: `<div class="content">
-            <h1>Climate Change - A deep Dive into the Data</h1>
+            <h1>Climate Change - A&nbsp;deep Dive into the Data</h1>
             <p>Understanding how the climate has changed over time can help us prepare for the future. By looking at
             the data from the last 100 years, we can see patterns, learn what's driving these changes, and start
             thinking about how we can address them. Let's break down the numbers, year by year, to better understand
@@ -88,6 +88,23 @@ Dashboards.board('container', {
                     editable: true
                 }
             },
+            caption: {
+                text: 'Key Climate Data Over Decades'
+            },
+            header: [{
+                columnId: 'Decade',
+            }, {
+                format: 'Measurement Results',
+                columns: [{
+                    columnId: 'Global Avg Temperature Increase',
+                }, {
+                    columnId: 'CO2 Concentration',
+                }, {
+                    columnId: 'Sea Level Rise',
+                }]
+            }, {
+                columnId: 'Extreme Weather Events',
+            }],
             columns: [{
                 id: 'Decade',
                 cells: {
@@ -95,21 +112,18 @@ Dashboards.board('container', {
                 }
             }, {
                 id: 'Global Avg Temperature Increase',
-                header: {
-                    format: '{id} [°C]'
+                cells: {
+                    format: '{value:0.1f} °C'
                 }
             }, {
                 id: 'CO2 Concentration',
-                header: {
-                    format: '{id} [ppm]'
+                cells: {
+                    format: '{value} ppm'
                 }
             }, {
                 id: 'Sea Level Rise',
-                header: {
-                    format: 'Sea Level Change [cm]'
-                },
                 cells: {
-                    format: '{value:0.1f}'
+                    format: '{value:0.1f} cm'
                 }
             }]
         }
@@ -126,14 +140,17 @@ Dashboards.board('container', {
         sync: {
             highlight: true
         },
-        title: {
-            text: 'CO2 Concentration Over Time'
-        },
         chartOptions: {
+            title: {
+                text: 'CO2 Concentration Over Time'
+            },
             yAxis: {
                 title: {
                     text: 'CO2 Level [ppm]'
                 }
+            },
+            tooltip: {
+                valueSuffix: ' ppm'
             }
         }
     }, {
@@ -149,17 +166,20 @@ Dashboards.board('container', {
         sync: {
             highlight: true
         },
-        title: {
-            text: 'Temperature Increase'
-        },
         chartOptions: {
             chart: {
                 type: 'column'
+            },
+            title: {
+                text: 'Temperature Increase'
             },
             yAxis: {
                 title: {
                     text: 'Temperature Change [°C]'
                 }
+            },
+            tooltip: {
+                valueSuffix: '°C'
             }
         }
     }, {
@@ -175,17 +195,20 @@ Dashboards.board('container', {
         sync: {
             highlight: true
         },
-        title: {
-            text: 'Global Sea Level Change'
-        },
         chartOptions: {
             chart: {
                 type: 'area'
             },
+            title: {
+                text: 'Global Sea Level Change'
+            },
             yAxis: {
                 title: {
-                    text: 'Sea Level Change [mm]'
+                    text: 'Sea Level Change [cm]'
                 }
+            },
+            tooltip: {
+                valueSuffix: ' cm'
             }
         }
     }]

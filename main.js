@@ -89,21 +89,21 @@ Dashboards.board('container', {
                 }
             },
             caption: {
-                text: 'Key Climate Data Over Decades'
+                text: 'Table showing climate development'
             },
             header: [{
                 columnId: 'Decade',
             }, {
-                format: 'Measurement Results',
+                columnId: 'CO2 Concentration',
+            }, {
+                format: 'Effects',
                 columns: [{
                     columnId: 'Global Avg Temperature Increase',
                 }, {
-                    columnId: 'CO2 Concentration',
-                }, {
                     columnId: 'Sea Level Rise',
+                }, {
+                    columnId: 'Extreme Weather Events',
                 }]
-            }, {
-                columnId: 'Extreme Weather Events',
             }],
             columns: [{
                 id: 'Decade',
@@ -112,6 +112,9 @@ Dashboards.board('container', {
                 }
             }, {
                 id: 'Global Avg Temperature Increase',
+                header: {
+                    format: 'Global Average Temperature Increase'
+                },
                 cells: {
                     format: '{value:0.1f} °C'
                 }

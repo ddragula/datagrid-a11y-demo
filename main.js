@@ -1,4 +1,7 @@
 Highcharts.setOptions({
+    chart: {
+        styledMode: true
+    },
     legend: {
         enabled: false
     },

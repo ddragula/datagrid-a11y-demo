@@ -94,6 +94,10 @@ Dashboards.board('container', {
             caption: {
                 text: 'Table showing climate development'
             },
+            description: {
+                text: 'The table shows climate changes over the past century: CO2 levels, temperature rise, sea level' +
+                ' increase, and extreme weather frequency by decade.'
+            },
             header: [{
                 columnId: 'Decade',
             }, {

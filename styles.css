@@ -42,3 +42,7 @@
     padding: 10px 0 0 0;
     font-size: 1.6em;
 }
+
+.highcharts-datagrid-description {
+    font-size: small;
+}
